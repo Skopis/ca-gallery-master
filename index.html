@@ -34,8 +34,21 @@
 
     <!-- Contact -->
     <section id="contact">
-      <h4>Contact Me</h4>
+      <h4 id="contact-me">Contact Me</h4>
+
+      <div class="contact-container">
+        <form action="action_page.php" class="form-for-contact">
+      
+          <label for="fname">Full Name</label><br/>
+          <input type="text" id="fname" name="firstname" placeholder="Your name.."><br/>
+          <label for="subject" >Subject</label><br/>
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea><br/>
+      
+          <input type="button" value="Submit" onclick="sendEmail()">
+        </form>
+      </div>
     </section>
+
 
   </aside>
 

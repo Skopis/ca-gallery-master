@@ -3,17 +3,17 @@ console.log('Starting up');
 
 
 function initPage() {
-renderPage();
+    renderPage();
 }
 
 function renderPage() {
-var projs = getProjs();
-var srtHTMLModals = '';
-var srtHTMLPortfolio = '';
-for (var i = 0; i < projs.length; i++) {
-    var currproj=projs[i];
-    srtHTMLModals +=
-    `<div class="portfolio-modal modal fade"
+    var projs = getProjs();
+    var srtHTMLModals = '';
+    var srtHTMLPortfolio = '';
+    for (var i = 0; i < projs.length; i++) {
+        var currproj = projs[i];
+        srtHTMLModals +=
+            `<div class="portfolio-modal modal fade"
     id="portfolioModal${i + 1}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -46,8 +46,8 @@ for (var i = 0; i < projs.length; i++) {
     </div> `
 
 
-    srtHTMLPortfolio +=
-    `<div class="col-md-4 col-sm-6 portfolio-item">
+        srtHTMLPortfolio +=
+            `<div class="col-md-4 col-sm-6 portfolio-item">
         <a class="portfolio-link" data-toggle="modal" href="#portfolioModal${i + 1}">
             <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
@@ -58,11 +58,19 @@ for (var i = 0; i < projs.length; i++) {
         </a>
         <div class="portfolio-caption">
             <h4>${currproj.name}</h4>
-            <p class="text-muted">???</p>
         </div>
     </div>`
     };
 
     document.querySelector('.modals-container').innerHTML = srtHTMLModals;
     document.querySelector('#portfolio-container').innerHTML = srtHTMLPortfolio;
-    }
+}
+
+
+function sendEmail() {
+    var name = $('#fname').val();
+    var subject = $('#subject').val();
+    var linkStr = 'https://mail.google.com/mail/?view=cm&fs=1&to=lian.skopis@hmail.com&su=' + name + '&body=' + subject;
+
+    window.open(linkStr, '_blank');
+}
